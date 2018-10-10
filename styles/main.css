@@ -1,0 +1,89 @@
+#app {
+  height: 100%;
+  font-family: 'Montserrat', 'Source Sans Pro', sans-serif;
+  background-image: url(../images/image.jpg);
+  background-size: 100%;
+}
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+.date {
+  margin-top: 20%;
+  font-size: 0.6rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.start {
+  margin-top: 40%;
+  border-radius: 0.1rem;
+  border: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1rem 0.2rem;
+  font-size: 0.5rem;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+.main-content {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.audioController {
+  height: 30%;
+  background: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.switch {
+  color: #fff;
+}
+.text {
+  height: 70%;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.3rem;
+  font-size: 0.35rem;
+  letter-spacing: 2px;
+  color: #666;
+  overflow: scroll;
+  text-align: justify;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+/* modal transition */
+.modal-enter {
+  opacity: 0;
+}
+.modal-leave-active {
+  opacity: 0;
+}
+.modal-enter .date, .modal-enter .start,
+.modal-leave-active .date, .modal-leave-active .start {
+  transform: scale(1.2);
+}
+
+/* main transition */
+.slide-down-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.slide-up-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}

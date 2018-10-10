@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Letter</title>
+  <link rel="stylesheet" href="styles/common.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <main class="main-content">
+      <!-- audio -->
+      <transition name="slide-down">
+        <div class="audioController" v-if="status === 2">
+          <svg class="switch" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="459" v-show="!isPlaying" @click="toggleBgm"><path d="M852.727563 392.447107C956.997809 458.473635 956.941389 565.559517 852.727563 631.55032L281.888889 993.019655C177.618644 1059.046186 93.090909 1016.054114 93.090909 897.137364L93.090909 126.860063C93.090909 7.879206 177.675064-35.013033 281.888889 30.977769L852.727563 392.447107 852.727563 392.447107Z" p-id="460"></path></svg>
+          <svg class="switch" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1473" v-show="isPlaying" @click="toggleBgm"><path d="M757.52 73.107h-62.493c-34.526 0-62.498 27.984-62.498 62.511v749.948c0 34.526 27.974 62.493 62.498 62.493h62.493c34.516 0 62.502-27.968 62.502-62.493v-749.953c-0.001-34.524-27.984-62.509-62.502-62.509zM320.054 73.107h-62.502c-34.526 0-62.498 27.984-62.498 62.511v749.948c0 34.526 27.974 62.493 62.498 62.493h62.502c34.505 0 62.493-27.968 62.493-62.493v-749.953c-0.001-34.524-27.984-62.509-62.493-62.509z" p-id="1474"></path></svg>
+        </div>
+      </transition>
+      <audio src="source/song.mp3" autoplay loop class="bgm" v-if="status === 2" ref="song"></audio>
+      <!-- text -->
+      <transition name="slide-up">
+        <div class="text" v-if="status === 2">
+          一般的两端对齐是使用text-align:justify，但是text-align:justify一般情况下只针对英文管用。（因为css是老外设计的，老外 
+          在justify判断的时候，是根据单词直接的空格来的，中文两个汉字之间没有空格，所以大部分情况下text-align:justify不管用， 
+          所以这个属性大部分形同虚设！）。
+          一般的两端对齐是使用text-align:justify，但是text-align:justify一般情况下只针对英文管用。（因为css是老外设计的，老外 
+          在justify判断的时候，是根据单词直接的空格来的，中文两个汉字之间没有空格，所以大部分情况下text-align:justify不管用， 
+          所以这个属性大部分形同虚设！）。
+          一般的两端对齐是使用text-align:justify，但是text-align:justify一般情况下只针对英文管用。（因为css是老外设计的，老外 
+          在justify判断的时候，是根据单词直接的空格来的，中文两个汉字之间没有空格，所以大部分情况下text-align:justify不管用， 
+          所以这个属性大部分形同虚设！）。
+          <br>
+          <br>
+          <br>
+        </div>
+      </transition>
+    </main>
+
+
+    <transition name="modal">
+      <div class="mask" v-if="status === 0">
+        <div class="date" v-text="date.toDateString()"></div>
+        <div class="start" @click="start">open it</div>
+      </div>
+    </transition>
+  </div>
+  
+  <script src="scripts/mobile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+  <script src="scripts/main.js"></script>
+</body>
+</html>
